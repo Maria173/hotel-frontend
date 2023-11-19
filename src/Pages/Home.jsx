@@ -7,7 +7,7 @@ import FeaturedRooms from "../Components/FeaturedRooms/FeaturedRooms";
 import Hero from "../Components/Hero/Hero";
 import Services from "../Components/Services/Services";
 
-function Home() {
+function Home(props) {
   return (
     <>
       <Hero>
@@ -21,7 +21,7 @@ function Home() {
         </Banner>
       </Hero>
       <Services />
-      <FeaturedRooms />
+      <FeaturedRooms mockRooms={props.mockRooms} />
     </>
   );
 }

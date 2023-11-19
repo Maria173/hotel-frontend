@@ -8,8 +8,8 @@ import Loadings from "../Loading/Loading";
 import RoomFilter from "./RoomsFilter";
 import RoomList from "./RoomsList";
 
-function RoomContainer({ context }) {
-  const [rooms, setRooms] = useState([]);
+function RoomContainer({ mockRooms }) {
+  const [rooms, setRooms] = useState(mockRooms || []);
   const [filters, setFilters] = useState({
     price: 20000,
     type: 'Все',

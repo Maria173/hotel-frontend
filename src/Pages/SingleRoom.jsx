@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 
 import { Link, useParams } from "react-router-dom";
+import {formatLiteralDate} from '../Helpers';
 
 // import assets
 import defaultBcg from "../assets/img/jpeg/room-1.jpeg";
@@ -10,9 +11,9 @@ import Banner from "../Components/Banner/Banner";
 import { RoomContext } from "../Context/Context";
 import StyledHero from "../Components/StyledHero/StyledHero";
 
-export default function SingleRoom() {
+export default function SingleRoom(props) {
   const { slug } = useParams();
-  const [room, setRoom] = useState([]);
+  const [room, setRoom] = useState(props.mockRoom ? props.mockRoom : []);
   const [isBookOpen, setIsBookOpen] = useState(false);
   const [fio, setFIO] = useState('');
   const [phone, setPhone] = useState('');
@@ -24,7 +25,7 @@ export default function SingleRoom() {
     fetch(`http://localhost:3010/rooms/${slug}`)
       .then((res) => res.json())
       .then((result) => setRoom(result));
-  }, []);
+  }, [slug]);
 
     if (!room?.[0]) {
       return (
@@ -45,9 +46,6 @@ export default function SingleRoom() {
       pets,
       breakfast
     } = room?.[0];
-
-    const options = { day: 'numeric', month: 'long', year: 'numeric' };
-
 
     const dateIn = localStorage.getItem('dateIn');
     const dateOut = localStorage.getItem('dateOut');
@@ -105,8 +103,8 @@ export default function SingleRoom() {
             {dateIn && dateOut &&
               <article className="info" style={{padding: 0}}>
                 <h3>Бронирование:</h3>
-                <h6>Дата заезда: {new Date(dateIn).toLocaleDateString('ru-RU', options)}</h6>
-                <h6>Дата выезда: {new Date(dateOut).toLocaleDateString('ru-RU', options)}</h6>
+                <h6>Дата заезда: {formatLiteralDate(dateIn)}</h6>
+                <h6>Дата выезда: {formatLiteralDate(dateOut)}</h6>
                 {!isBookOpen && <button onClick={() => setIsBookOpen(true)} className="button" style={{padding: '10px 20px'}}>Забронировать</button>}
               </article>}
 

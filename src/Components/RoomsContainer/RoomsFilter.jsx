@@ -3,30 +3,12 @@ import DatePicker from "react-datepicker";
 import { registerLocale } from  "react-datepicker";
 import ru from 'date-fns/locale/ru';
 import "react-datepicker/dist/react-datepicker.css";
+import {formatDate} from '../../Helpers';
 // import context
 import { RoomContext } from "../../Context/Context";
 
 // import components
 import Title from "../Title/Title";
-
-// get all unique values
-const getUnique = (items, value) => {
-  return [...new Set(items.map((item) => item[value]))];
-};
-
-function formatDate(dateString) {
-  const originalDate = new Date(dateString);
-  const year = originalDate.getFullYear();
-  const month = String(originalDate.getMonth() + 1).padStart(2, '0');
-  const day = String(originalDate.getDate()).padStart(2, '0');
-
-  return `${year}-${month}-${day}`;
-}
-
-// Example usage:
-const originalDateString = 'Sun Nov 19 2023 00:00:00 GMT+0300 (Москва, стандартное время)';
-const formattedDate = formatDate(originalDateString);
-console.log(formattedDate); // Output: '2023-11-19'
 
 export default function RoomFilter({ rooms, setFilters, filters }) {
   registerLocale('ru', ru)
