@@ -7,6 +7,8 @@ import { Route, Switch } from "react-router-dom";
 import Home from "../Pages/Home";
 import Room from "../Pages/Room";
 import SingleRoom from "../Pages/SingleRoom";
+import Gallery from "../Pages/Gallery";
+import About from "../Pages/About";
 import Error from "../Pages/Error";
 
 // import components
@@ -21,6 +23,8 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/rooms/" component={Room} />
         <Route exact path="/rooms/:slug" component={SingleRoom} />
+        <Route exact path="/gallery" component={Gallery} />
+        <Route exact path="/about" component={About} />
         <Route component={Error} />
       </Switch>
       <Footer />
