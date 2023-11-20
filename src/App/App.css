@@ -569,3 +569,17 @@ p {
   margin-top: 20px;
   cursor: pointer;
 }
+
+.about {
+  color: #495057;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.about-title {
+  margin: 40px 0 20px;
+  /* border-bottom: 1px solid black;
+  margin-bottom: 20px; */
+  font-size: 24px;
+  font-weight: 700;
+}
