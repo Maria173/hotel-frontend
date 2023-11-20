@@ -8,8 +8,8 @@ import Loading from "../Loading/Loading";
 import Room from "../Room/Room";
 import Title from "../Title/Title";
 
-export default function FeatureRooms() {
-  const [rooms, setRooms] = useState([]);
+export default function FeatureRooms({mockRooms}) {
+  const [rooms, setRooms] = useState(mockRooms || []);
 
   useEffect(() => {
     fetch('http://localhost:3010/rooms')

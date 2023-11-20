@@ -8,7 +8,7 @@ import Hero from "../Components/Hero/Hero";
 import Banner from "../Components/Banner/Banner";
 import RoomContainer from "../Components/RoomsContainer/RoomsContainer";
 
-function Room() {
+function Room(props) {
   return (
     <>
       <Hero hero="roomsHero">
@@ -19,7 +19,7 @@ function Room() {
         </Banner>
       </Hero>
 
-      <RoomContainer />
+      <RoomContainer mockRooms={props.mockRooms} />
     </>
   );
 }
